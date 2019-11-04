@@ -1,0 +1,44 @@
+UC de missao e valores de emrpesa 
+   <input>
+   |   nome, razão social, missão, visão
+   |                                    ,valores[nome*, descrição]
+   </inputs>
+
+##########################################################################
+
+CRUD análise SWOT
+   FORÇAS (internos)
+   FRAQUEZAS (internos)
+   OPORTUNIDADES (externos)
+   AMEAÇA (externos)
+   
+   <input>
+	tipo(select do SWOT), descrição
+   </input>
+
+criar um diagrama que recebe os valores inputados no formulário que estará contido logo a baixo desse diagrama
+
+##########################################################################
+
+CRUD plano de ação
+
+<table>
+	|------------------------------------------------------------------------|
+	| <th>TIPO</th> | <th>PRECO</th> | <th>AÇÃO</th> | <th>INVESTIMENTO</th> |
+	|------------------------------------------------------------------------|
+</table>
+
+<input>
+   objetivo(select°), ação, investimento
+</input>
+
+°esse selectbox será recuperado da tble que guarda os tiops da SWOT
+##########################################################################
+
+criação de RELATÓRIO DE INVESTIMENOTS POR OBJETIVO
+
+   ______________________________________________
+
+ | FORÇA  | FRAQUEZA    | OPORTUNIDADES | AMEAÇAS |
+ | 45.00  | 108.000.000 | 101.000.000   | 159.00  |
+ ______________________________________________
