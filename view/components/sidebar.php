@@ -39,12 +39,24 @@
     <a class="nav-link" href="">
       <!-- <i class="fas fa-fw fa-chart-area"></i> -->
       <i class="fas fa-user"></i>
-      <span>item</span></a>
+      <span>Missão&Valores</span></a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="">
       <!-- <i class="fas fa-fw fa-chart-area"></i> -->
       <i class="fas fa-user"></i>
-      <span>item</span></a>
+      <span>SWOT</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="">
+      <!-- <i class="fas fa-fw fa-chart-area"></i> -->
+      <i class="fas fa-user"></i>
+      <span>Plano de Ação</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="">
+      <!-- <i class="fas fa-fw fa-chart-area"></i> -->
+      <i class="fas fa-user"></i>
+      <span>Relatórios</span></a>
   </li>
 </ul>

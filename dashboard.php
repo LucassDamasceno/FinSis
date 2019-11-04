@@ -30,6 +30,46 @@
     <div id="content-wrapper">
       <!-- <div id="conteudoCarregado" class="container-fluid">
       </div> -->
+
+      <?php
+        $nome = 'GECI';
+      ?>
+   
+      <form method="post">
+      <div>
+        <p>Nome</p>
+        <input type="text" name="nome">
+      </div>
+      <div>
+        <p>Razão Social</p>
+        <input type="text" name="razao">
+      </div>
+      <div>
+        <p>Missão</p>
+        <input type="text" name="missao">
+      </div>
+      <div>
+        <p>Visão</p>
+        <input type="text" name="visao">
+      </div>
+      <div>
+        <p>Valores</p>
+        <input type="text" name="valores">
+      </div>
+
+      <button class="btn btn-primary" name="registrar">Salvar</button>
+      </form>
+
+
+      <?php
+        if(isset($_POST['registrar'])) {
+          $nome = $_POST['nome'];
+        }
+      ?>
+
+      <!-- <p>OLÁ <?php echo $nome; ?></p> -->
+
+      
       <img src="view/imgs/logomarca.png" alt="" style="display: block;width: 350px; margin: 3.8vw auto; opacity: 0.2">
     </div>
   </div>
