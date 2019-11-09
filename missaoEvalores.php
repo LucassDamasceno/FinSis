@@ -33,7 +33,7 @@
       
       <!-- formulario -->
       <div class="col-3">
-      <form>
+      <form id="formMissaoValores">
           <div class="form-group">
             <p>Nome</p>
             <input class="form-control" type="text" name="nome">
@@ -55,15 +55,13 @@
             <input class="form-control" type="text" name="valores">
           </div>
 
-          <button class="btn btn-primary" name="registrar">Salvar</button>
         </form>
+          <button onclick="btn_addMissaoValores()" class="btn btn-primary" name="registrar">Salvar</button>
       </div>
       <!-- tabela -->
       <div class="col-9">
         <div class="col-12">
-          <button class="btn btn-warning" onclick="add_tabelaMissaoValores()"><i class="fa fa-plus"></i></button>
-          <button class="btn btn-warning" onclick="edit_tabelaMissaoValores()"><i class="fa fa-pen"></i></button>
-          <button class="btn btn-warning" onclick="del_tabelaMissaoValores()"><i class="fa fa-trash"></i></button>
+         
         </div>
         <table class="table" id="tabelaMissaoValor" data-toggle="table" data-toolbar="#toolbar" data-search="false" data-click-to-select="true">
           <thead class="table-dark">
@@ -74,6 +72,7 @@
               <th data-field="missao">MISSÃO</th>
               <th data-field="visao">VISÃO</th>
               <th data-field="valores">VALORES</th>
+              <th data-formatter="functionDelete">AÇÃO</th>
             </tr>
           </thead>
         </table>
@@ -82,44 +81,7 @@
       <!-- <img src="view/imgs/logomarca.png" alt="" style="display: block;width: 350px; margin: 3.8vw auto; opacity: 1"> -->
     </div>
   </div>
-
-  <!-- INICIO DOS MODAIS -->
   
-  <!-- inicio modal add registro da tabela de missao$valores -->
-  <div class="modal  fade" id="addMissaoValor" tabindex="-1" role="dialog" aria-labelledby="modalTitulo" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalTitulo">Adicionar Missão&Valores</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-         add formulário aqui
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary">Ok</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- fim modal add registro da tabela de missao$valores -->
-  
-  <!-- inicio modal edit registro da tabela de missao$valores -->
-  <!-- fim modal edit registro da tabela de missao$valores -->
-  
-  <!-- inicio modal delete registro da tabela de missao$valores -->
-  <!-- fim modal delete registro da tabela de missao$valores -->
-  
-  <!-- FIM  DOS MODAIS -->
-  
-
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
   <!--  -->
     <!-- Bootstrap core JavaScript-->
     <script src="view/vendor/jquery/jquery.min.js"></script>
@@ -146,14 +108,54 @@
     $("#tabelaMissaoValor").bootstrapTable();
     $("#tabelaMissaoValor").bootstrapTable("refresh", {url:"dados.json"});
 
-    // chamada dos modais
-    function add_tabelaMissaoValores()
+    function functionDelete(campo, obj, indice)
     {
-      $("#addMissaoValor").modal('show');
-    }    
-    function edit_tabelaMissaoValores(){}
-    function del_tabelaMissaoValores(){} 
+      return `<button class="btn btn-sm btn-warning" onclick="del_tabelaMissaoValores(${obj.id})"><i class="fa fa-trash"></i></button>` + `<button style="margin-left: 10px;" class="btn btn-sm btn-warning" onclick="edit_tabelaMissaoValores(${obj.id})"><i class="fa fa-pen"></i></button>`;
+    }
 
+    // ADD
+    function btn_addMissaoValores()
+    {
+      let formData = new FormData($("#formMissaoValores")[0]);
+      $.ajax({
+        url: "controller/missaoEvalores_Add.php",
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+        type: 'post',
+        dataType: 'JSON',
+        success: function(ret)
+        {
+          console.log(ret);
+        },
+        error: function(err)
+        {
+          console.log(err)
+        }
+      })
+    }
+
+    // delete
+    function del_tabelaMissaoValores()
+    {
+      let selecionado = $("#tabelaMissaoValor").bootstrapTable('getSelections');
+      if(selecionado.length == 0)
+      {
+        bootbox.alert("Selecione o item a ser DELETADO.")
+      }
+      else
+      {
+        bootbox.confirm("Deseja mesmo deletar este(s) item(ns)?", function(resposta){
+          if(resposta = true)
+          {
+            bootbox.alert("Programar DELEÇÂO")
+          }
+        })
+      }
+    } 
+
+    
   </script>
 
 </body>

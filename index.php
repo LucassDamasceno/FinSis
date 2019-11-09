@@ -1,5 +1,5 @@
 <?php 
-  header("location: dashboard.php");
+  header("location: missaoEvalores.php");
 ?>
 
 <!DOCTYPE html>
