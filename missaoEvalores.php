@@ -72,7 +72,7 @@
               <th data-field="missao">MISSÃO</th>
               <th data-field="visao">VISÃO</th>
               <th data-field="valores">VALORES</th>
-              <th data-formatter="functionDelete">AÇÃO</th>
+              <th data-formatter="functionAcao">AÇÃO</th>
             </tr>
           </thead>
         </table>
@@ -108,12 +108,12 @@
     $("#tabelaMissaoValor").bootstrapTable();
     $("#tabelaMissaoValor").bootstrapTable("refresh", {url:"dados.json"});
 
-    function functionDelete(campo, obj, indice)
+    function functionAcao(campo, obj, indice)
     {
       return `<button class="btn btn-sm btn-warning" onclick="del_tabelaMissaoValores(${obj.id})"><i class="fa fa-trash"></i></button>` + `<button style="margin-left: 10px;" class="btn btn-sm btn-warning" onclick="edit_tabelaMissaoValores(${obj.id})"><i class="fa fa-pen"></i></button>`;
     }
 
-    // ADD
+    // ADD 
     function btn_addMissaoValores()
     {
       let formData = new FormData($("#formMissaoValores")[0]);
@@ -154,6 +154,12 @@
         })
       }
     } 
+
+    //edit
+    function edit_tabelaMissaoValores(id)
+    {
+      alert(id);
+    }
 
     
   </script>
