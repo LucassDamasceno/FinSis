@@ -14,6 +14,31 @@
   <link href="view/css/sb-admin.css" rel="stylesheet">
   <!-- API BootstrapTable -->
   <link href="view/vendor/bootstrapTable/bootstrap-table.min.css" rel="stylesheet">
+
+  <style>
+    .card
+    {
+      padding: 0;
+    }
+    .card-header
+    {
+      color: #fff;
+    }
+    #containerCRUD
+    {
+      width: 100%; 
+      height: 6.3%;
+    }
+    #containerCRUD i 
+    {
+      color: #fff;
+    }
+    #containerCRUD i:hover
+    {
+      color: grey;
+    }
+  </style>
+
 </head>
 
 <body id="page-top">
@@ -30,13 +55,135 @@
       ?>
     </div>
     <div class="row col-10" style="padding: 15px 5px">
-      
-      SWOT
+
+      <div id="containerSWOT" class="row">
+      <!-- trocar os elementos por <li> -->
+        <div class="card col-3"> 
+          <div class="card-header bg-laranja">
+            FORÇAS
+          </div>
+          <div class="card-body">
+            <ul id="listaForca">
+              <li id="a">
+                <input type="checkbox" name="" id=""> isso aqui era pra ser a descriçao de um ponto de FORÇAS da empresa
+              </li>
+            </ul>
+          </div>
+          <div id="containerCRUD" class="footer">
+            <button class="btn btn-md bg-laranja" onclick="add_forca('listaForca')"><i class="fa fa-plus"></i></button>
+            <button class="btn btn-md bg-laranja" onclick="modalEdit('listaForca')"><i class="fa fa-pen"></i></button>
+            <button class="btn btn-md bg-laranja" onclick="modalDel('listaForca')"><i class="fa fa-trash"></i></button>
+          </div>
+        </div>
+
+        <div class="card col-3">
+          <div class="card-header bg-laranja">
+              FRAQUEZAS
+          </div>
+          <div class="card-body">
+            <div>
+              <p>
+              <input type="checkbox" id="" name="">
+              isso aqui era pra ser a descriçao de um ponto de FRAQUEZAS da empresa
+              </p>
+            </div>
+          </div>
+            <div id="containerCRUD" class="footer">
+              <button class="btn btn-md bg-laranja" onclick="add_forca('fraqueza')"><i class="fa fa-plus"></i></button>
+              <button class="btn btn-md bg-laranja" onclick="modalEdit('fraqueza')"><i class="fa fa-pen"></i></button>
+              <button class="btn btn-md bg-laranja" onclick="modalDel('fraqueza')"><i class="fa fa-trash"></i></button>
+            </div>          
+        </div>
+        
+        <div class="card col-3">
+          <div class="card-header bg-laranja">
+              OPORTUNIDADES
+          </div>
+          <div class="card-body">
+            <div>
+              <p>
+              <input type="checkbox" id="" name="">
+              isso aqui era pra ser a descriçao de um ponto de OPORTUNIDADES da empresa
+              </p>
+            </div>
+          </div>
+          <div id="containerCRUD" class="footer">
+            <button class="btn btn-md bg-laranja" onclick="add_forca('oportunidade')"><i class="fa fa-plus"></i></button>
+            <button class="btn btn-md bg-laranja" onclick="modalEdit('oportunidade')"><i class="fa fa-pen"></i></button>
+            <button class="btn btn-md bg-laranja" onclick="modalDel('oportunidade')"><i class="fa fa-trash"></i></button>
+          </div>
+        </div>
+
+        <div class="card col-3">
+          <div class="card-header bg-laranja">
+              AMEAÇAS
+          </div>
+          <div class="card-body">
+            <div>
+              <p>
+              <input type="checkbox" id="" name="">
+              isso aqui era pra ser a descriçao de um ponto de AMEAÇAS da empresa
+              </p>
+            </div>
+          </div>
+          <div id="containerCRUD" class="footer">
+            <button class="btn btn-md bg-laranja" onclick="add_forca('ameaca')"><i class="fa fa-plus"></i></button>
+            <button class="btn btn-md bg-laranja" onclick="modalEdit('ameaca')"><i class="fa fa-pen"></i></button>
+            <button class="btn btn-md bg-laranja" onclick="modalDel('ameaca')"><i class="fa fa-trash"></i></button>
+          </div>
+        </div>
+      </div>
       
       <!-- <img src="view/imgs/logomarca.png" alt="" style="display: block;width: 350px; margin: 3.8vw auto; opacity: 1"> -->
     </div>
   </div>
   
+  <!-- INICIO DE MODAIS -->
+
+  <!-- modal adicionar -->
+  <div id="modalAdd" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">ADICIONAR</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>form aqui</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- modla editar -->
+  <div id="modalEdit" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">ADICIONAR</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>form aqui</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FIM DE MODAIS -->
+
   <!--  -->
     <!-- Bootstrap core JavaScript-->
     <script src="view/vendor/jquery/jquery.min.js"></script>
@@ -59,6 +206,15 @@
   
   <!-- scripts prorpios -->
   <script>
+    function add_forca(elementoSWOT)
+    {
+      let elementoLista = $("#".elementoSWOT);
+      $("#modalAdd").modal("show");
+    }
+    
+    function modalEdit(elementoSWOT){}
+
+    function modalDel(elementoSWOT){}
   </script>
 
 </body>
