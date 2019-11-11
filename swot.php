@@ -14,31 +14,6 @@
   <link href="view/css/sb-admin.css" rel="stylesheet">
   <!-- API BootstrapTable -->
   <link href="view/vendor/bootstrapTable/bootstrap-table.min.css" rel="stylesheet">
-
-  <style>
-    .card
-    {
-      padding: 0;
-    }
-    .card-header
-    {
-      color: #fff;
-    }
-    #containerCRUD
-    {
-      width: 100%; 
-      height: 6.3%;
-    }
-    #containerCRUD i 
-    {
-      color: #fff;
-    }
-    #containerCRUD i:hover
-    {
-      color: grey;
-    }
-  </style>
-
 </head>
 
 <body id="page-top">
@@ -54,8 +29,9 @@
         require_once "view/components/sidebar.php";
       ?>
     </div>
+      
     <div class="row col-10" style="padding: 15px 5px">
-
+    
       <div id="containerSWOT" class="row">
       <!-- trocar os elementos por <li> -->
         <div class="card col-3"> 
@@ -94,7 +70,7 @@
               <button class="btn btn-md bg-laranja" onclick="modalDel('fraqueza')"><i class="fa fa-trash"></i></button>
             </div>          
         </div>
-        
+
         <div class="card col-3">
           <div class="card-header bg-laranja">
               OPORTUNIDADES
@@ -133,11 +109,11 @@
           </div>
         </div>
       </div>
-      
+
       <!-- <img src="view/imgs/logomarca.png" alt="" style="display: block;width: 350px; margin: 3.8vw auto; opacity: 1"> -->
     </div>
   </div>
-  
+
   <!-- INICIO DE MODAIS -->
 
   <!-- modal adicionar -->
@@ -151,11 +127,16 @@
           </button>
         </div>
         <div class="modal-body">
-          <p>form aqui</p>
+          <form id="formForca">
+                  <div class="form-group">
+                        <label for="form_descricao">Descrição</label>
+                        <input type="text" id="form_descricao" name="form_descricao" class="form-control" >
+                  </div>
+          </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary">Ok</button>
+          <button id="btn_formulario" class="btn btn-primary" onclick="add_forca()">Cadastrar</button>
         </div>
       </div>
     </div>
@@ -184,6 +165,10 @@
 
   <!-- FIM DE MODAIS -->
 
+      <!-- <img src="view/imgs/logomarca.png" alt="" style="display: block;width: 350px; margin: 3.8vw auto; opacity: 1"> -->
+    </div>
+  </div>
+  
   <!--  -->
     <!-- Bootstrap core JavaScript-->
     <script src="view/vendor/jquery/jquery.min.js"></script>
@@ -206,15 +191,48 @@
   
   <!-- scripts prorpios -->
   <script>
+    // carregamento da tabela
+    $("#tabelaMissaoValor").bootstrapTable();
+    $("#tabelaMissaoValor").bootstrapTable("refresh", {url:"dados.json"});
+
+    function functionAcao(campo, obj, indice)
+    {
+      return `<button class="btn btn-sm btn-warning" onclick="del_tabelaMissaoValores(${obj.id})"><i class="fa fa-trash"></i></button>` + `<button style="margin-left: 10px;" class="btn btn-sm btn-warning" onclick="edit_tabelaMissaoValores(${obj.id})"><i class="fa fa-pen"></i></button>`;
+    }
+
+    // ADD 
     function add_forca(elementoSWOT)
     {
       let elementoLista = $("#".elementoSWOT);
       $("#modalAdd").modal("show");
+      let formulario = $("#formForca")[0];
+      let formData = new FormData(formulario);
+        $.ajax({
+                    url: "controller/Swot_add.php",
+                    data: formData,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    type: 'POST',
+                    dataType: 'JSON',
+                    success: function(ret){
+                        // console.log(ret)
+                        console.log("registro feito com sucesso!")
+                    },
+                    error: function(xhr, desc, err)
+                    {
+                        console.log(xhr)
+                        console.log("tem alguma coisa errada"+desc + "nErro:" + err);
+                    }
+                })
     }
     
     function modalEdit(elementoSWOT){}
-
     function modalDel(elementoSWOT){}
+    
+
+
+
   </script>
 
 </body>
