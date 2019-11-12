@@ -14,6 +14,7 @@
   <link href="view/css/sb-admin.css" rel="stylesheet">
   <!-- API BootstrapTable -->
   <link href="view/vendor/bootstrapTable/bootstrap-table.min.css" rel="stylesheet">
+  <link href="view/css/planoAcao.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -30,8 +31,66 @@
       ?>
     </div>
     <div class="row col-10" style="padding: 15px 5px">
-      
-      Plano Ação
+      <div class="buttons">
+        <button class="btn btn-md bg-laranja" onclick="add_forca('ameaca')"><i class="fa fa-plus"></i></button>
+        <button class="btn btn-md bg-laranja" onclick="modalEdit('ameaca')"><i class="fa fa-pen"></i></button>
+        <button class="btn btn-md bg-laranja" onclick="modalDel('ameaca')"><i class="fa fa-trash"></i></button>
+      </div>
+
+      <table class="table col-12" >
+        <thead align="center">
+          <tr>
+            <th scope="col">TIPO</th>
+            <th scope="col">PRECO</th>
+            <th scope="col">ACÃO</th>
+            <th scope="col">INVESTIMENTO</th>
+          </tr>
+        </thead>
+        <tbody align="center">
+          <tr>
+            <td>tipo</td>
+            <td>preço</td>
+            <td>ação</td>
+            <td>investimento</td>
+          </tr>
+          <tr>
+            <td>tipo</td>
+            <td>preço</td>
+            <td>ação</td>
+            <td>investimento</td>
+          </tr>
+          <tr>
+            <td>tipo</td>
+            <td>preço</td>
+            <td>ação</td>
+            <td>investimento</td>
+          </tr>
+          <tr>
+            <td>tipo</td>
+            <td>preço</td>
+            <td>ação</td>
+            <td>investimento</td>
+          </tr>
+          <tr>
+            <td>tipo</td>
+            <td>preço</td>
+            <td>ação</td>
+            <td>investimento</td>
+          </tr>
+          <tr>
+            <td>tipo</td>
+            <td>preço</td>
+            <td>ação</td>
+            <td>investimento</td>
+          </tr>
+          <tr>
+            <td>tipo</td>
+            <td>preço</td>
+            <td>ação</td>
+            <td>investimento</td>
+          </tr>
+        </tbody>
+      </table>
       
       <!-- <img src="view/imgs/logomarca.png" alt="" style="display: block;width: 350px; margin: 3.8vw auto; opacity: 1"> -->
     </div>
