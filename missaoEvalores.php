@@ -106,7 +106,8 @@
   <script>
     // carregamento da tabela
     $("#tabelaMissaoValor").bootstrapTable();
-    $("#tabelaMissaoValor").bootstrapTable("refresh", {url:"dados.json"});
+    // $("#tabelaMissaoValor").bootstrapTable("refresh", {url:"dados.json"});
+    $("#tabelaMissaoValor").bootstrapTable("refresh",{ url:'controller/controllerIndexReload.php' });
 
     function functionAcao(campo, obj, indice)
     {
@@ -123,15 +124,18 @@
         cache: false,
         contentType: false,
         processData: false,
-        type: 'post',
+        type: 'POST',
         dataType: 'JSON',
         success: function(ret)
         {
           console.log(ret);
+          console.log("sucesso");
         },
-        error: function(err)
+        error: function(xhr, desc, err)
         {
-          console.log(err)
+          console.log(xhr)
+          console.log("tem alguma coisa errada "+desc + "nErro:" + err);
+          
         }
       })
     }
