@@ -2,11 +2,12 @@
 
 class Conexao
 {
-    public function Conexao()
+    public function t()
     {
         try
         {
-            $con = new PDO("mysql:dbname= >NOMEDOBANCO<, host: localhost", "root", "");
+            $con = new PDO("mysql:dbname=finsis;host=localhost", "root", "");
+            $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
             return $con;
         }
         catch (PDOExeption $e)
