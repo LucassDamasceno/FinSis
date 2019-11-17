@@ -29,37 +29,110 @@
         require_once "view/components/sidebar.php";
       ?>
     </div>
-    <div class="row col-10" style="padding: 15px 5px">
+    <div class="row col-10" style="padding: 15px">
       
-      <!-- formulario -->
-      <div class="col-3">
-      <form id="formMissaoValores">
-          <div class="form-group">
-            <p>Nome</p>
-            <input class="form-control" type="text" name="nome">
-          </div>
+    <div class="col-2" style="padding: 15px 5px"> 
+    <div id="containerCRUD" class="top">
+            <button class="btn btn-md bg-laranja" onclick="addEmpresa()"><i class="fa fa-plus"></i></button>
+            <button class="btn btn-md bg-laranja" onclick="edit_tabelaMissaoValores(id)"><i class="fa fa-pen"></i></button>
+            <button class="btn btn-md bg-laranja" onclick="del_tabelaMissaoValores()"><i class="fa fa-trash"></i></button>
+    </div>
+       
+       <!-- INÍCIO MODAIS  -->
+      <!-- Modal adicionar Missao&Valores -->
+      <div id="modalAdd" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">ADICIONAR MISSÃO & VALORES DA EMPRESA</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="formMissaoValores">
+                  <div class="form-group">
+                  <form id="formMissaoValores">
           <div class="form-group">
             <p>Razão Social</p>
-            <input class="form-control" type="text" name="razao">
+            <input class="form-control" type="text" name="razao" placeholder="Razão Social">
+          </div>
+          <div class="form-group">
+            <p>CNPJ</p>
+            <input class="form-control" type="text" name="cnpj" placeholder="99.999.999/9999-99">
           </div>
           <div class="form-group">
             <p>Missão</p>
-            <input class="form-control" type="text" name="missao">
+            <input class="form-control" type="text" name="missao" placeholder="Missão">
           </div>
           <div class="form-group">
             <p>Visão</p>
-            <input class="form-control" type="text" name="visao">
+            <input class="form-control" type="text" name="visao" placeholder="Visão">
           </div>
           <div class="form-group">
             <p>Valores</p>
-            <input class="form-control" type="text" name="valores">
+            <input class="form-control" type="text" name="valores"  placeholder="Valores da Empresa">
           </div>
 
         </form>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
           <button onclick="btn_addMissaoValores()" class="btn btn-primary" name="registrar">Salvar</button>
       </div>
+      </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+      
+     <!-- Modal editar Missao&Valores -->
+     <!-- <div id="modalEdit" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">EDITAR MISSÃO & VALORES DA EMPRESA</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="formMissaoValores">
+                  <div class="form-group">
+                  <form id="formMissaoValores">
+          <div class="form-group">
+            <p>Razão Social</p>
+            <input class="form-control" type="text" name="razao" placeholder="Razão Social">
+          </div>
+          <div class="form-group">
+            <p>CNPJ</p>
+            <input class="form-control" type="text" name="cnpj" placeholder="99.999.999/9999-99">
+          </div>
+          <div class="form-group">
+            <p>Missão</p>
+            <input class="form-control" type="text" name="missao" placeholder="Missão">
+          </div>
+          <div class="form-group">
+            <p>Visão</p>
+            <input class="form-control" type="text" name="visao" placeholder="Visão">
+          </div>
+          <div class="form-group">
+            <p>Valores</p>
+            <input class="form-control" type="text" name="valores"  placeholder="Valores da Empresa">
+          </div>
+
+        </form>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button onclick="edit_tabelaMissaoValores(id)" class="btn btn-primary" name="alterar">Salvar</button>
+      </div>
+      </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <!-- FIM MODAIS -->
       <!-- tabela -->
-      <div class="col-9">
+      <div class="col-10">
         <div class="col-12">
          
         </div>
@@ -67,12 +140,12 @@
           <thead class="table-dark">
             <tr>
               <th data-field="chkbx" data-checkbox="true"></th>
-              <th data-field="nome">NOME</th>
-              <th data-field="RazSocial">RAZÃO SOCIAL</th>
+              <th data-field="nome">RAZÃO SOCIAL</th>
+              <th data-field="RazSocial">CNPJ</th>
               <th data-field="missao">MISSÃO</th>
               <th data-field="visao">VISÃO</th>
               <th data-field="valores">VALORES</th>
-              <th data-formatter="functionAcao">AÇÃO</th>
+              <!-- <th data-formatter="functionAcao">AÇÃO</th> -->
             </tr>
           </thead>
         </table>
@@ -102,16 +175,26 @@
     <script src="view/vendor/bootbox/bootbox.min.js"></script>
   <!--  -->
   
-  <!-- scripts prorpios -->
+  <!-- scripts próprios -->
   <script>
     // carregamento da tabela
     $("#tabelaMissaoValor").bootstrapTable();
-    // $("#tabelaMissaoValor").bootstrapTable("refresh", {url:"dados.json"});
+    //$("#tabelaMissaoValor").bootstrapTable("refresh", {url:"dados.json"});
     $("#tabelaMissaoValor").bootstrapTable("refresh",{ url:'controller/controllerIndexReload.php' });
 
-    function functionAcao(campo, obj, indice)
+    // function functionAcao(campo, obj, indice)
+    // {
+    //   return `<button class="btn btn-sm btn-warning" onclick="del_tabelaMissaoValores(${obj.id})"><i class="fa fa-trash"></i></button>` + `<button style="margin-left: 10px;" class="btn btn-sm btn-warning" onclick="edit_tabelaMissaoValores(${obj.id})"><i class="fa fa-pen"></i></button>`;
+    // }
+
+
+    // CHAMAR FORM MISSAO&VALORES
+    function addEmpresa()
     {
-      return `<button class="btn btn-sm btn-warning" onclick="del_tabelaMissaoValores(${obj.id})"><i class="fa fa-trash"></i></button>` + `<button style="margin-left: 10px;" class="btn btn-sm btn-warning" onclick="edit_tabelaMissaoValores(${obj.id})"><i class="fa fa-pen"></i></button>`;
+      let elementoLista = $("#".elementoMissao);
+      $("#modalAdd").modal("show");
+      let formulario = $("#formMissaoValores")[0];
+      let formData = new FormData(formulario);
     }
 
     // ADD 
@@ -162,12 +245,14 @@
     //edit
     function edit_tabelaMissaoValores(id)
     {
-      alert(id);
+      let elementoLista = $("#".elementoMissaoEdit);
+      $("#modalEdit").modal("show");
+      let formulario = $("#formMissaoValores")[0];
+      let formData = new FormData(formulario);
+      //alert(id);
     }
 
-    
   </script>
-
 </body>
 
 </html>
