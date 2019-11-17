@@ -1,4 +1,4 @@
-thead{
+/* thead{
     background-color:rgb(59, 59, 59);
     color:white;
 
@@ -6,4 +6,10 @@ thead{
 
 .table{
     margin-top: -290px;
+} */
+
+
+.buttons{
+    margin-top:20px;
+    margin-bottom: 20px;
 }

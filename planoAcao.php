@@ -31,67 +31,64 @@
       ?>
     </div>
     <div class="row col-10" style="padding: 15px 5px">
-      <div class="buttons">
-        <button class="btn btn-md bg-laranja" onclick="add_forca('ameaca')"><i class="fa fa-plus"></i></button>
-        <button class="btn btn-md bg-laranja" onclick="modalEdit('ameaca')"><i class="fa fa-pen"></i></button>
-        <button class="btn btn-md bg-laranja" onclick="modalDel('ameaca')"><i class="fa fa-trash"></i></button>
-      </div>
-
-      <table class="table col-12" >
-        <thead align="center">
-          <tr>
-            <th scope="col">TIPO</th>
-            <th scope="col">PRECO</th>
-            <th scope="col">ACÃO</th>
-            <th scope="col">INVESTIMENTO</th>
-          </tr>
-        </thead>
-        <tbody align="center">
-          <tr>
-            <td>tipo</td>
-            <td>preço</td>
-            <td>ação</td>
-            <td>investimento</td>
-          </tr>
-          <tr>
-            <td>tipo</td>
-            <td>preço</td>
-            <td>ação</td>
-            <td>investimento</td>
-          </tr>
-          <tr>
-            <td>tipo</td>
-            <td>preço</td>
-            <td>ação</td>
-            <td>investimento</td>
-          </tr>
-          <tr>
-            <td>tipo</td>
-            <td>preço</td>
-            <td>ação</td>
-            <td>investimento</td>
-          </tr>
-          <tr>
-            <td>tipo</td>
-            <td>preço</td>
-            <td>ação</td>
-            <td>investimento</td>
-          </tr>
-          <tr>
-            <td>tipo</td>
-            <td>preço</td>
-            <td>ação</td>
-            <td>investimento</td>
-          </tr>
-          <tr>
-            <td>tipo</td>
-            <td>preço</td>
-            <td>ação</td>
-            <td>investimento</td>
-          </tr>
-        </tbody>
-      </table>
       
+      <!-- formulario -->
+      <div class="col-3">
+        <div class="col-12 buttons">
+           <div id="containerCRUD" class="footer">
+              <button class="btn btn-md bg-laranja" onclick=""><i class="fa fa-plus"></i></button>
+              <button class="btn btn-md bg-laranja" onclick=""><i class="fa fa-pen"></i></button>
+              <button class="btn btn-md bg-laranja" onclick=""><i class="fa fa-trash"></i></button>
+            </div>   
+        </div>
+        <form id="formPlanoDeAção">
+          <div class="form-group">
+            <p>O que fazer</p>
+            <input class="form-control" type="text" name="nome">
+          </div>
+          <div class="form-group">
+            <p>Por que fazer</p>
+            <input class="form-control" type="text" name="razao">
+          </div>
+          <div class="form-group">
+            <p>Quem fará</p>
+            <input class="form-control" type="text" name="missao">
+          </div>
+          <div class="form-group">
+            <p>Como fará</p>
+            <input class="form-control" type="text" name="visao">
+          </div>
+
+          <div class="form-group">
+            <p>Aonde</p>
+            <input class="form-control" type="text" name="visao">
+          </div>
+          <div class="form-group">
+            <p>Prazo final</p>
+            <input class="form-control" type="text" name="visao">
+          </div>
+        </form>
+
+          <button onclick="btn_addPlanoDeAcao()" class="btn btn-primary" name="registrar">Adionar</button>
+      </div>
+      <!-- tabela -->
+      <div class="col-9">
+        <div class="col-12">
+        </div>
+        <table class="table" id="tabelaPlanoDeAcao" data-toggle="table" data-toolbar="#toolbar" data-search="false" data-click-to-select="true">
+          <thead class="table-dark">
+            <tr>
+              <th data-field="chkbx" data-checkbox="true"></th>
+              <th data-field="nome">O QUE FAZER</th>
+              <th data-field="RazSocial">POR QUE FAZER</th>
+              <th data-field="missao">QUEM FARÁ</th>
+              <th data-field="visao">COMO FARÁ</th>
+              <th data-field="valores">AONDE</th>
+              <th data-formatter="functionAcao">PRAZO FINAL</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
       <!-- <img src="view/imgs/logomarca.png" alt="" style="display: block;width: 350px; margin: 3.8vw auto; opacity: 1"> -->
     </div>
   </div>
