@@ -84,11 +84,16 @@
                     </div>
                     <div class="form-group">
                       <p>Missão</p>
-                      <input class="form-control" type="text" name="missao" placeholder="Missão">
+
+                      <textarea style="resize: none" id="story" name="story" rows="5" cols="33">It was a dark and stormy night...</textarea>
+                      <!-- <input class="form-control" type="text" name="missao" placeholder="Missão"> -->
                     </div>
                     <div class="form-group">
                       <p>Visão</p>
-                      <input class="form-control" type="text" name="visao" placeholder="Visão">
+                      <textarea style="resize: none" id="story" name="story" rows="5" cols="33">It was a dark and stormy night...</textarea>
+                      <!-- <input class="form-control" type="text" name="visao" placeholder="Visão"> -->
+
+                      <!-- https://www.youtube.com/watch?v=aWdRpLEqwkI -->
                     </div>
                     <div class="form-group">
                       <p>Valores</p>
