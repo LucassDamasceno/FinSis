@@ -40,7 +40,6 @@
       </div>
 
 
-
       <!-- tabela -->
       <div class="col-10">
         <div class="col-12">
@@ -181,10 +180,10 @@
   <script>
     // carregamento da tabela
     $("#tabelaMissaoValor").bootstrapTable();
-    //$("#tabelaMissaoValor").bootstrapTable("refresh", {
+    $("#tabelaMissaoValor").bootstrapTable("refresh", {
       url: "dados.json"
     });
-    $("#tabelaMissaoValor").bootstrapTable("refresh",{ url:'controller/controllerIndexReload.php' });
+    //$("#tabelaMissaoValor").bootstrapTable("refresh",{ url:'controller/controllerIndexReload.php' });
 
     // function functionAcao(campo, obj, indice)
     // {

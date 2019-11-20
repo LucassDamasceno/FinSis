@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,30 +19,41 @@
 </head>
 
 <body id="page-top">
-  <?php 
-    // barra do topo
-    require_once "view/components/barTop.php";
+  <?php
+  // barra do topo
+  require_once "view/components/barTop.php";
   ?>
 
   <div id="wrapper">
     <div class="col-2" style="padding: 0">
-      <?php 
-        // Sidebar
-        require_once "view/components/sidebar.php";
+      <?php
+      // Sidebar
+      require_once "view/components/sidebar.php";
       ?>
     </div>
     <div class="row col-10" style="padding: 15px 5px">
-      
+
       <!-- formulario -->
       <div class="col-3">
         <div class="col-12 buttons">
-           <div id="containerCRUD" class="footer">
-              <button class="btn btn-md bg-laranja" onclick=""><i class="fa fa-plus"></i></button>
-              <button class="btn btn-md bg-laranja" onclick=""><i class="fa fa-pen"></i></button>
-              <button class="btn btn-md bg-laranja" onclick=""><i class="fa fa-trash"></i></button>
-            </div>   
+          <div id="containerCRUD" class="footer">
+            <button class="btn btn-md bg-laranja" onclick=""><i class="fa fa-plus"></i></button>
+            <button class="btn btn-md bg-laranja" onclick=""><i class="fa fa-pen"></i></button>
+            <button class="btn btn-md bg-laranja" onclick=""><i class="fa fa-trash"></i></button>
+          </div>
         </div>
         <form id="formPlanoDeAção">
+
+          <div class="form-group">
+            <p>Selecionar</p>
+            <select name="select" class="form-control">
+              <option value="valor1">força</option>
+              <option value="valor2" selected>Fraquesas</option>
+              <option value="valor3">Oportunidades</option>
+              <option value="valor3">Ameaças</option>
+            </select>
+          </div>
+
           <div class="form-group">
             <p>O que fazer</p>
             <input class="form-control" type="text" name="nome">
@@ -69,7 +81,7 @@
           </div>
         </form>
 
-          <button onclick="btn_addPlanoDeAcao()" class="btn btn-primary" name="registrar">Adionar</button>
+        <button onclick="btn_addPlanoDeAcao()" class="btn btn-primary" name="registrar">Adionar</button>
       </div>
       <!-- tabela -->
       <div class="col-9">
@@ -92,27 +104,27 @@
       <!-- <img src="view/imgs/logomarca.png" alt="" style="display: block;width: 350px; margin: 3.8vw auto; opacity: 1"> -->
     </div>
   </div>
-  
+
   <!--  -->
-    <!-- Bootstrap core JavaScript-->
-    <script src="view/vendor/jquery/jquery.min.js"></script>
-    <script src="view/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Core plugin JavaScript-->
-    <script src="view/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <!-- Page level plugin JavaScript-->
-    <script src="view/vendor/chart.js/Chart.min.js"></script>
-    <script src="view/vendor/datatables/jquery.dataTables.js"></script>
-    <script src="view/vendor/datatables/dataTables.bootstrap4.js"></script>
-    <!-- Custom scripts for all pages-->
-    <script src="view/js/sb-admin.min.js"></script>
-    <!-- Demo scripts for this page-->
-    <script src="view/js/demo/datatables-demo.js"></script>
-    <!-- API BootstrapTable -->
-    <script src="view/vendor/bootstrapTable/bootstrap-table.min.js"></script>
-    <!-- API Bootbox -->
-    <script src="view/vendor/bootbox/bootbox.min.js"></script>
+  <!-- Bootstrap core JavaScript-->
+  <script src="view/vendor/jquery/jquery.min.js"></script>
+  <script src="view/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="view/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <!-- Page level plugin JavaScript-->
+  <script src="view/vendor/chart.js/Chart.min.js"></script>
+  <script src="view/vendor/datatables/jquery.dataTables.js"></script>
+  <script src="view/vendor/datatables/dataTables.bootstrap4.js"></script>
+  <!-- Custom scripts for all pages-->
+  <script src="view/js/sb-admin.min.js"></script>
+  <!-- Demo scripts for this page-->
+  <script src="view/js/demo/datatables-demo.js"></script>
+  <!-- API BootstrapTable -->
+  <script src="view/vendor/bootstrapTable/bootstrap-table.min.js"></script>
+  <!-- API Bootbox -->
+  <script src="view/vendor/bootbox/bootbox.min.js"></script>
   <!--  -->
-  
+
   <!-- scripts prorpios -->
   <script>
   </script>

@@ -14,6 +14,30 @@
   <link href="view/css/sb-admin.css" rel="stylesheet">
   <!-- API BootstrapTable -->
   <link href="view/vendor/bootstrapTable/bootstrap-table.min.css" rel="stylesheet">
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Swot', 'Investimento'],
+          ['Força',     11],
+          ['Fraqueza',      8],
+          ['Oportunidade',  2],
+          ['Ameaças', 4]
+        ]);
+
+        var options = {
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
 </head>
 
 <body id="page-top">
@@ -32,7 +56,7 @@
     <div class="row col-10" style="padding: 15px 5px">
       
       Relatório
-      
+      <div id="piechart" style="width: 900px; height: 500px;"></div>
       <!-- <img src="view/imgs/logomarca.png" alt="" style="display: block;width: 350px; margin: 3.8vw auto; opacity: 1"> -->
     </div>
   </div>
