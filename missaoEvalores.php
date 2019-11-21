@@ -84,16 +84,13 @@
                     </div>
                     <div class="form-group">
                       <p>Missão</p>
-
-                      <textarea style="resize: none" id="story" name="story" rows="5" cols="33">It was a dark and stormy night...</textarea>
+                      <textarea style="resize: none" name="missao" placeholder="Missão" rows="5" cols="106"></textarea>
                       <!-- <input class="form-control" type="text" name="missao" placeholder="Missão"> -->
                     </div>
                     <div class="form-group">
                       <p>Visão</p>
-                      <textarea style="resize: none" id="story" name="story" rows="5" cols="33">It was a dark and stormy night...</textarea>
+                      <textarea style="resize: none" name="visao" placeholder="Visão" rows="5" cols="106"></textarea>
                       <!-- <input class="form-control" type="text" name="visao" placeholder="Visão"> -->
-
-                      <!-- https://www.youtube.com/watch?v=aWdRpLEqwkI -->
                     </div>
                     <div class="form-group">
                       <p>Valores</p>
@@ -127,25 +124,27 @@
                   <form id="formMissaoValores">
                     <div class="form-group">
                       <p>Razão Social</p>
-                      <input class="form-control" type="text" name="razao" placeholder="Razão Social">
+                      <input class="form-control" type="text" name="razao" id="razao" placeholder="Razão Social">
                     </div>
                     <div class="form-group">
                       <p>CNPJ</p>
-                      <input class="form-control" type="text" name="cnpj" placeholder="99.999.999/9999-99">
+                      <input class="form-control" type="text" name="cnpj" id="cnpj" placeholder="99.999.999/9999-99">
                     </div>
                     <div class="form-group">
                       <p>Missão</p>
-                      <input class="form-control" type="text" name="missao" placeholder="Missão">
+                      <textarea style="resize: none" name="missao" id="missao" placeholder="Missão" rows="5" cols="106"></textarea>
                     </div>
                     <div class="form-group">
                       <p>Visão</p>
-                      <input class="form-control" type="text" name="visao" placeholder="Visão">
+                      <textarea style="resize: none" name="visao" id="visao" placeholder="Visão" rows="5" cols="106"></textarea>
                     </div>
                     <div class="form-group">
                       <p>Valores</p>
-                      <input class="form-control" type="text" name="valores" placeholder="Valores da Empresa">
+                      <input class="form-control" type="text" name="valores" id="valores" placeholder="Valores da Empresa">
+                      <!-- <input class="form-control" type="text" name="valores[]" id="valores" placeholder="Valores da Empresa">
+                      <button type="button" class="btn btn-primary" name="adicionar">+</button> -->
                     </div>
-
+                    <!-- https://www.youtube.com/watch?v=aWdRpLEqwkI -->
                   </form>
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                   <button onclick="edit_tabelaMissaoValores(id)" class="btn btn-primary" name="alterar">Salvar</button>
@@ -185,10 +184,8 @@
   <script>
     // carregamento da tabela
     $("#tabelaMissaoValor").bootstrapTable();
-    $("#tabelaMissaoValor").bootstrapTable("refresh", {
-      url: "dados.json"
-    });
-    //$("#tabelaMissaoValor").bootstrapTable("refresh",{ url:'controller/controllerIndexReload.php' });
+    //$("#tabelaMissaoValor").bootstrapTable("refresh", { url: "dados.json"  });
+    $("#tabelaMissaoValor").bootstrapTable("refresh",{ url:'controller/controllerIndexReload.php' });
 
     // function functionAcao(campo, obj, indice)
     // {

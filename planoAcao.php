@@ -47,8 +47,8 @@
           <div class="form-group">
             <p>Selecionar</p>
             <select name="select" class="form-control">
-              <option value="valor1">força</option>
-              <option value="valor2" selected>Fraquesas</option>
+              <option value="valor1">Forças</option>
+              <option value="valor2" selected>Fraquezas</option>
               <option value="valor3">Oportunidades</option>
               <option value="valor3">Ameaças</option>
             </select>
@@ -79,9 +79,13 @@
             <p>Prazo final</p>
             <input class="form-control" type="text" name="visao">
           </div>
+          <div class="form-group">
+            <p>Valor/Custo</p>
+            <input class="form-control" type="text" name="visao">
+          </div>
         </form>
 
-        <button onclick="btn_addPlanoDeAcao()" class="btn btn-primary" name="registrar">Adionar</button>
+        <button onclick="btn_addPlanoDeAcao()" class="btn btn-primary" name="registrar">Adicionar</button>
       </div>
       <!-- tabela -->
       <div class="col-9">
@@ -97,6 +101,7 @@
               <th data-field="visao">COMO FARÁ</th>
               <th data-field="valores">AONDE</th>
               <th data-formatter="functionAcao">PRAZO FINAL</th>
+              <th data-field="valores">VALOR/CUSTO</th>
             </tr>
           </thead>
         </table>
