@@ -14,6 +14,12 @@
   <link href="view/css/sb-admin.css" rel="stylesheet">
   <!-- API BootstrapTable -->
   <link href="view/vendor/bootstrapTable/bootstrap-table.min.css" rel="stylesheet">
+  <style>
+    #containerSWOT
+    {
+      width: 100%;
+    }
+  </style>
 </head>
 
 <body id="page-top">
@@ -29,90 +35,7 @@
         require_once "view/components/sidebar.php";
       ?>
     </div>
-      
-    <div class="row col-10" style="padding: 15px 5px">
-    
-      <div id="containerSWOT" class="row">
-      <!-- trocar os elementos por <li> -->
-        <div class="card col-3"> 
-          <div class="card-header bg-laranja">
-            FORÇAS
-          </div>
-          <div class="card-body">
-            <ul id="listaForca">
-              <li id="a">
-                <input type="checkbox" name="" id=""> isso aqui era pra ser a descriçao de um ponto de FORÇAS da empresa
-              </li>
-            </ul>
-          </div>
-          <div id="containerCRUD" class="footer">
-            <button class="btn btn-md bg-laranja" onclick="add_forca('listaForca')"><i class="fa fa-plus"></i></button>
-            <button class="btn btn-md bg-laranja" onclick="modalEdit('listaForca')"><i class="fa fa-pen"></i></button>
-            <button class="btn btn-md bg-laranja" onclick="modalDel('listaForca')"><i class="fa fa-trash"></i></button>
-          </div>
-        </div>
 
-        <div class="card col-3">
-          <div class="card-header bg-laranja">
-              FRAQUEZAS
-          </div>
-          <div class="card-body">
-            <div>
-              <p>
-              <input type="checkbox" id="" name="">
-              isso aqui era pra ser a descriçao de um ponto de FRAQUEZAS da empresa
-              </p>
-            </div>
-          </div>
-            <div id="containerCRUD" class="footer">
-              <button class="btn btn-md bg-laranja" onclick="add_forca('fraqueza')"><i class="fa fa-plus"></i></button>
-              <button class="btn btn-md bg-laranja" onclick="modalEdit('fraqueza')"><i class="fa fa-pen"></i></button>
-              <button class="btn btn-md bg-laranja" onclick="modalDel('fraqueza')"><i class="fa fa-trash"></i></button>
-            </div>          
-        </div>
-
-        <div class="card col-3">
-          <div class="card-header bg-laranja">
-              OPORTUNIDADES
-          </div>
-          <div class="card-body">
-            <div>
-              <p>
-              <input type="checkbox" id="" name="">
-              isso aqui era pra ser a descriçao de um ponto de OPORTUNIDADES da empresa
-              </p>
-            </div>
-          </div>
-          <div id="containerCRUD" class="footer">
-            <button class="btn btn-md bg-laranja" onclick="add_forca('oportunidade')"><i class="fa fa-plus"></i></button>
-            <button class="btn btn-md bg-laranja" onclick="modalEdit('oportunidade')"><i class="fa fa-pen"></i></button>
-            <button class="btn btn-md bg-laranja" onclick="modalDel('oportunidade')"><i class="fa fa-trash"></i></button>
-          </div>
-        </div>
-
-        <div class="card col-3">
-          <div class="card-header bg-laranja">
-              AMEAÇAS
-          </div>
-          <div class="card-body">
-            <div>
-              <p>
-              <input type="checkbox" id="" name="">
-              isso aqui era pra ser a descriçao de um ponto de AMEAÇAS da empresa
-              </p>
-            </div>
-          </div>
-          <div id="containerCRUD" class="footer">
-            <button class="btn btn-md bg-laranja" onclick="add_forca('ameaca')"><i class="fa fa-plus"></i></button>
-            <button class="btn btn-md bg-laranja" onclick="modalEdit('ameaca')"><i class="fa fa-pen"></i></button>
-            <button class="btn btn-md bg-laranja" onclick="modalDel('ameaca')"><i class="fa fa-trash"></i></button>
-          </div>
-        </div>
-      </div>
-
-      <!-- <img src="view/imgs/logomarca.png" alt="" style="display: block;width: 350px; margin: 3.8vw auto; opacity: 1"> -->
-    </div>
-  </div>
 
   <!-- INICIO DE MODAIS -->
 
@@ -121,17 +44,19 @@
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">ADICIONAR</h5>
+          <h5 class="modal-title">Adicionar <span id="titleElementoSwot"></span></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <form id="formForca">
-                  <div class="form-group">
-                        <label for="form_descricao">Descrição</label>
-                        <input type="text" id="form_descricao" name="form_descricao" class="form-control" >
-                  </div>
+          <form id="formulario">
+            <div class="form-group">
+                  <label for="form_nome">Nome</label>
+                  <input type="hidden" id="form_nome" name="form_nome" class="form-control" disabled>
+                  <label for="form_descricao">Descrição</label>
+                  <input type="text" id="form_descricao" name="form_descricao" class="form-control" >
+            </div>
           </form>
         </div>
         <div class="modal-footer">
@@ -145,7 +70,7 @@
   <!-- modla editar -->
   <div id="modalEdit" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">
+      <div class="modal-content">0
         <div class="modal-header">
           <h5 class="modal-title">ADICIONAR</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -165,10 +90,89 @@
 
   <!-- FIM DE MODAIS -->
 
+      
+    <div class="row col-10" id="div "style="padding: 15px 5px">
+    
+      <div id="containerSWOT" class="row">
+
+        <div class="card col-3"> 
+          <div class="card-header bg-laranja">
+            FORÇAS
+          </div>
+          <div id="card-body-forca" class="card-body"></div>
+          <div id="containerCRUD" class="footer">
+            <button class="btn btn-md bg-laranja" onclick="modal_add('Força')"><i class="fa fa-plus"></i></button>
+            <button class="btn btn-md bg-laranja" onclick="modalEdit('Força')"><i class="fa fa-pen"></i></button>
+            <button class="btn btn-md bg-laranja" onclick="modalDel('Força')"><i class="fa fa-trash"></i></button>
+          </div>
+        </div>
+
+        <div class="card col-3">
+          <div class="card-header bg-laranja">
+              FRAQUEZAS
+          </div>
+          <div id="card-body-fraqueza" class="card-body fraquezas">
+            <div>
+              <p>
+              <input type="checkbox" id="" name="">
+              isso aqui era pra ser a descriçao de um ponto de FRAQUEZAS da empresa
+              </p>
+            </div>
+          </div>
+            <div id="containerCRUD" class="footer">
+              <button class="btn btn-md bg-laranja" onclick="modal_add('Fraqueza')"><i class="fa fa-plus"></i></button>
+              <button class="btn btn-md bg-laranja" onclick="modalEdit('Fraqueza')"><i class="fa fa-pen"></i></button>
+              <button class="btn btn-md bg-laranja" onclick="modalDel('Fraqueza')"><i class="fa fa-trash"></i></button>
+            </div>          
+        </div>
+
+        <div class="card col-3">
+          <div class="card-header bg-laranja">
+              OPORTUNIDADES
+          </div>
+          <div id="card-body-oportunidade" class="card-body">
+            <div>
+              <p>
+              <input type="checkbox" id="" name="">
+              isso aqui era pra ser a descriçao de um ponto de OPORTUNIDADES da empresa
+              </p>
+            </div>
+          </div>
+          <div id="containerCRUD" class="footer">
+            <button class="btn btn-md bg-laranja" onclick="modal_add('Oportunidade')"><i class="fa fa-plus"></i></button>
+            <button class="btn btn-md bg-laranja" onclick="modalEdit('Oportunidade')"><i class="fa fa-pen"></i></button>
+            <button class="btn btn-md bg-laranja" onclick="modalDel('Oportunidade')"><i class="fa fa-trash"></i></button>
+          </div>
+        </div>
+
+        <div class="card col-3">
+          <div class="card-header bg-laranja">
+              AMEAÇAS
+          </div>
+          <div id="card-body-ameaca" class="card-body">
+            <div>
+              <p>
+              <input type="checkbox" id="" name="">
+                isso aqui era pra ser a descriçao de um ponto de AMEAÇAS da empresa
+              </p>
+            </div>
+          </div>
+          <div id="containerCRUD" class="footer">
+            <button class="btn btn-md bg-laranja" onclick="modal_add('Ameaça')"><i class="fa fa-plus"></i></button>
+            <button class="btn btn-md bg-laranja" onclick="modalEdit('Ameaça')"><i class="fa fa-pen"></i></button>
+            <button class="btn btn-md bg-laranja" onclick="modalDel('Ameaça')"><i class="fa fa-trash"></i></button>
+          </div>
+        </div>
+
+      </div>
       <!-- <img src="view/imgs/logomarca.png" alt="" style="display: block;width: 350px; margin: 3.8vw auto; opacity: 1"> -->
-    </div>
   </div>
-  
+</div>
+
+      <!-- <img src="view/imgs/logomarca.png" alt="" style="display: block;width: 350px; margin: 3.8vw auto; opacity: 1"> -->
+  </div>
+</div>
+
   <!--  -->
     <!-- Bootstrap core JavaScript-->
     <script src="view/vendor/jquery/jquery.min.js"></script>
@@ -191,44 +195,123 @@
   
   <!-- scripts prorpios -->
   <script>
-    // carregamento da tabela
-    $("#tabelaMissaoValor").bootstrapTable();
-    $("#tabelaMissaoValor").bootstrapTable("refresh", {url:"dados.json"});
+  // carregamento da tabela
 
     function functionAcao(campo, obj, indice)
     {
       return `<button class="btn btn-sm btn-warning" onclick="del_tabelaMissaoValores(${obj.id})"><i class="fa fa-trash"></i></button>` + `<button style="margin-left: 10px;" class="btn btn-sm btn-warning" onclick="edit_tabelaMissaoValores(${obj.id})"><i class="fa fa-pen"></i></button>`;
     }
 
-    // ADD 
-    function add_forca(elementoSWOT)
-    {
-      let elementoLista = $("#".elementoSWOT);
-      $("#modalAdd").modal("show");
-      let formulario = $("#formForca")[0];
-      let formData = new FormData(formulario);
-        $.ajax({
-                    url: "controller/Swot_add.php",
-                    data: formData,
-                    cache: false,
-                    contentType: false,
-                    processData: false,
-                    type: 'POST',
-                    dataType: 'JSON',
-                    success: function(ret){
-                        // console.log(ret)
-                        console.log("registro feito com sucesso!")
-                    },
-                    error: function(xhr, desc, err)
-                    {
-                        console.log(xhr)
-                        console.log("tem alguma coisa errada"+desc + "nErro:" + err);
-                    }
-                })
-    }
+    function reload(){
+      
+      // Forca
+      $.get('http://localhost:3000/api/swots/nome/Força', function(retorno) {
+        const swots = retorno.swots; //transformar em json o retorno
+        $('#card-body-forca').html('');
+        swots.forEach(swot =>
+        {
+          $('#card-body-forca').append(`<div>
+              <p>
+              <input type="checkbox" id="" name="">
+              ${swot.descricao}
+              </p>
+            </div>`);
+        });
     
-    function modalEdit(elementoSWOT){}
-    function modalDel(elementoSWOT){}
+      });
+      // Fraqueza
+      $.get('http://localhost:3000/api/swots/nome/Fraqueza', function(retorno) {
+        const swots = retorno.swots; //transformar em json o retorno
+        $('#card-body-fraqueza').html('');
+        swots.forEach(swot =>
+        {
+          
+          $('#card-body-fraqueza').append(`<div>
+              <p>
+              <input type="checkbox" id="" name="">
+              ${swot.descricao}
+              </p>
+            </div>`);
+        });
+    
+      });
+      // Oportunidade
+      $.get('http://localhost:3000/api/swots/nome/Oportunidade', function(retorno) {
+        const swots = retorno.swots; //transformar em json o retorno
+        $('#card-body-oportunidade').html('');
+        swots.forEach(swot =>
+        {
+          
+          $('#card-body-oportunidade').append(`<div>
+              <p>
+              <input type="checkbox" id="" name="">
+              ${swot.descricao}
+              </p>
+            </div>`);
+        });
+    
+      });
+      // Ameacas
+      $.get('http://localhost:3000/api/swots/nome/Ameaça', function(retorno) {
+        const swots = retorno.swots; //transformar em json o retorno
+        $('#card-body-ameaca').html('');
+        swots.forEach(swot =>
+        {
+          
+          $('#card-body-ameaca').append(`<div>
+              <p>
+              <input type="checkbox" id="" name="">
+              ${swot.descricao}
+              </p>
+            </div>`);
+        });
+    
+      });
+
+    }
+//iniciar automaticamente a função reload
+    $(function() {
+      reload();
+    });
+
+    // ADD 
+    function modal_add(elementoSWOT)
+    {
+      $("#titleElementoSwot").html(elementoSWOT)
+      $.get('http://localhost:3000/api/swots/nome/'+elementoSWOT), (result) =>{
+      const swot = json.swots;
+      }
+
+      $("#form_nome").val(elementoSWOT);
+      $("#modalAdd").modal("show");
+    }
+
+
+    function add_forca()
+    {      
+      $.ajax({
+        url: 'http://localhost:3000/api/swots',
+        type: 'POST',
+        dataType:'JSON',
+        data: { nome: $('#form_nome').val(), descricao: $('#form_descricao').val() },
+        success: function(ret)
+        {
+          reload()
+          $("#modalAdd").modal("hide");
+        },
+        error: function(err)
+        {
+          bootbox.alert("Erro na comunicação com o servidor.")
+        }
+      })
+    }
+
+    function modalEdit(elementoSWOT){
+
+    }
+    function modalDel(elementoSWOT){
+
+    }
     
 
 
