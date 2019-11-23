@@ -1,0 +1,23 @@
+executar:
+npm install @babel/core @babel/register @babel/preset-env --save-dev
+
+depois do postgress instalado e a database creada:
+npx sequelize-cli db:create
+
+npx sequelize-cli db:migrate
+
+senha: postgres
+
+executar como administrador o pgadmin
+
+ele pede pra colocar uma senha tambem, a mesma do postgres : postgres
+
+agora vamos criar um novo servidor e depois uma base de dados
+
+dá um npm install
+
+depois é só rodar:
+npm start
+
+
+localhost:3000
