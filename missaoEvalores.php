@@ -94,12 +94,12 @@
                     </div>
                     <div class="form-group">
                       <p>Missão</p>
-                      <textarea style="resize: none" name="missao" placeholder="Missão" rows="5" cols="106"></textarea>
+                      <textarea class="form-control" name="missao" placeholder="Missão" rows="2" ></textarea>
                       <!-- <input class="form-control" type="text" name="missao" placeholder="Missão"> -->
                     </div>
                     <div class="form-group">
                       <p>Visão</p>
-                      <textarea style="resize: none" name="visao" placeholder="Visão" rows="5" cols="106"></textarea>
+                      <textarea class="form-control" name="visao" placeholder="Visão" rows="2"></textarea>
                       <!-- <input class="form-control" type="text" name="visao" placeholder="Visão"> -->
                     </div>
                     <div class="form-group">
@@ -142,11 +142,11 @@
                     </div>
                     <div class="form-group">
                       <p>Missão</p>
-                      <textarea style="resize: none" name="missao" id="missao" placeholder="Missão" rows="5" cols="106"></textarea>
+                      <textarea class="form-control" name="missao" id="missao" placeholder="Missão" rows="2" cols="106"></textarea>
                     </div>
                     <div class="form-group">
                       <p>Visão</p>
-                      <textarea style="resize: none" name="visao" id="visao" placeholder="Visão" rows="5" cols="106"></textarea>
+                      <textarea class="form-control" name="visao" id="visao" placeholder="Visão" rows="2" cols="106"></textarea>
                     </div>
                     <div class="form-group">
                       <p>Valores</p>
