@@ -15,6 +15,19 @@
   <link href="view/css/sb-admin.css" rel="stylesheet">
   <!-- API BootstrapTable -->
   <link href="view/vendor/bootstrapTable/bootstrap-table.min.css" rel="stylesheet">
+
+  <style>
+    #containerCRUD
+    {
+      height: 40px;
+      margin-bottom: 0;
+    }
+    #containerTabela
+    {
+      margin-top: -280px;
+    }
+  </style>
+
 </head>
 
 <body id="page-top">
@@ -33,7 +46,7 @@
     <div class="row col-10" style="padding: 15px">
 
 
-      <div id="containerCRUD" class="top">
+      <div id="containerCRUD" class="col-12 top">
         <button class="btn btn-md bg-laranja" onclick="addEmpresa()"><i class="fa fa-plus"></i></button>
         <button class="btn btn-md bg-laranja" onclick="edit_tabelaMissaoValores(id)"><i class="fa fa-pen"></i></button>
         <button class="btn btn-md bg-laranja" onclick="del_tabelaMissaoValores()"><i class="fa fa-trash"></i></button>
@@ -41,12 +54,9 @@
 
 
       <!-- tabela -->
-      <div class="col-10">
-        <div class="col-12">
-
-        </div>
+      <div class="col-12" id="containerTabela">
         <table class="table" id="tabelaMissaoValor" data-toggle="table" data-toolbar="#toolbar" data-search="false" data-click-to-select="true">
-          <thead class="table-dark">
+          <thead class="bg-laranja">
             <tr>
               <th data-field="chkbx" data-checkbox="true"></th>
               <th data-field="nome">RAZÃO SOCIAL</th>
