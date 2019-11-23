@@ -13,7 +13,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <link rel="icon" href="view/imgs/faviconLG.png" sizes="16x16" type="image/png" />
+  <!-- <link rel="icon" href="view/imgs/faviconLG.png" sizes="16x16" type="image/png" /> -->
   <title>Construtora Pandora</title>
 
   <!-- Custom fonts for this template-->
