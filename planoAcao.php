@@ -163,6 +163,90 @@
         </div>
       </div>
 
+
+      <!-- modal editar -->
+      <div id="modalEditarPlanoAcao" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Editar o plano de ação</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="formPlanoAcao">
+                <div class="form-group">
+                  <form id="formPlanoDeAção">
+
+                    <div class="form-group">
+                      <p>Selecionar</p>
+                      <select name="select" class="form-control">
+                        <option value="valor1">Forças</option>
+                        <option value="valor2" selected>Fraquezas</option>
+                        <option value="valor3">Oportunidades</option>
+                        <option value="valor3">Ameaças</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <p>O que fazer</p>
+                      <input class="form-control" type="text" name="nome">
+                    </div>
+                    <div class="form-group">
+                      <p>Por que fazer</p>
+                      <input class="form-control" type="text" name="razao">
+                    </div>
+                    <div class="form-group">
+                      <p>Quem fará</p>
+                      <input class="form-control" type="text" name="missao">
+                    </div>
+                    <div class="form-group">
+                      <p>Como fará</p>
+                      <input class="form-control" type="text" name="visao">
+                    </div>
+                    <div class="form-group">
+                      <p>Aonde</p>
+                      <input class="form-control" type="text" name="visao">
+                    </div>
+                    <div class="form-group">
+                      <p>Prazo final</p>
+                      <input class="form-control" type="text" name="visao">
+                    </div>
+                    <div class="form-group">
+                      <p>Valor/Custo</p>
+                      <input class="form-control" type="text" name="visao">
+                    </div>
+                    <!-- <div class="form-group">
+                      <p>Razão Social</p>
+                      <input class="form-control" type="text" name="razao" placeholder="Razão Social">
+                    </div>
+                    <div class="form-group">
+                      <p>CNPJ</p>
+                      <input class="form-control" type="text" name="cnpj" placeholder="99.999.999/9999-99">
+                    </div>
+                    <div class="form-group">
+                      <p>Missão</p>
+                      <textarea class="form-control" name="missao" placeholder="Missão" rows="2" ></textarea>
+                    </div>
+                    <div class="form-group">
+                      <p>Visão</p>
+                      <textarea class="form-control" name="visao" placeholder="Visão" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <p>Valores</p>
+                      <input class="form-control" type="text" name="valores" placeholder="Valores da Empresa">
+                    </div> -->
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <as onclick="btn_ok_modal_PlanoAcao()" class="btn btn-primary" name="registrar">Salvar Alterações </as>
+
+                  </form>
+                </div>
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
   <!--  -->
   <!-- Bootstrap core JavaScript-->
   <script src="view/vendor/jquery/jquery.min.js"></script>
@@ -190,6 +274,27 @@
     {
       $("#modalAddPlanoAcao").modal("show");
     }
+
+    function editPlanoAcao()
+    {
+      $("#modalEditarPlanoAcao").modal("show");
+    }
+    
+
+    function delPlanoAcao()
+    {
+      let selecionado = $("#tabelaPlanoDeAcao").bootstrapTable('getSelections');
+      if (selecionado.length == 0) {
+        bootbox.alert("Selecione o plano de ação a ser DELETADO.")
+      } else {
+        bootbox.confirm("Deseja mesmo deletar este(s) item(ns)?", function(resposta) {
+          if (resposta = true) {
+            bootbox.alert("Programar DELEÇÂO")
+          }
+        })
+      }
+    }
+
 
     function btn_ok_modal_PlanoAcao()
     {
