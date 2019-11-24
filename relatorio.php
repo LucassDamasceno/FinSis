@@ -26,7 +26,7 @@
     }
   </style>
 
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
@@ -48,7 +48,7 @@
 
         chart.draw(data, options);
       }
-    </script>
+    </script> -->
 </head>
 
 <body id="page-top">
@@ -86,7 +86,7 @@
         </div>
       </div>
 
-      <div id="piechart" style="width: 900px; height: 500px;"></div>
+      <!-- <div id="piechart" style="width: 900px; height: 500px;"></div> -->
       <!-- <img src="view/imgs/logomarca.png" alt="" style="display: block;width: 350px; margin: 3.8vw auto; opacity: 1"> -->
     </div>
   </div>
@@ -117,8 +117,6 @@
     {
       // window.location.href
       window.open("geraRelatorio.php");
-      bootbox.alert("Programar chamada para gerar relatório")
-      bootbox.alert($("#opcaoSWOT").val())
     }
   </script>
 
