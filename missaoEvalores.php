@@ -26,6 +26,22 @@
     {
       margin-top: -250px;
     }
+    #btn-adicionar-add
+    {
+      margin-top: 10px;
+    }
+    #btn-adicionar-edit
+    {
+      margin-top: 10px;
+    }
+    #btn-remover
+    {
+      margin-top: 10px;
+    }
+    #valores 
+    {
+      margin-top: 10px;
+    }
   </style>
 
 </head>
@@ -104,7 +120,12 @@
                     </div>
                     <div class="form-group">
                       <p>Valores</p>
-                      <input class="form-control" type="text" name="valores" placeholder="Valores da Empresa">
+                      <!-- <input class="form-control" type="text" name="valores" placeholder="Valores da Empresa"> -->
+                      <input class="form-control" type="text" name="valores[]" id="valores" placeholder="Valor - Detalhe">
+                      <div id="containerBotaoAdd">
+                      <button type="button" class="btn btn-primary" name="btn-adicionar-add" id="btn-adicionar-add"> + </button>
+                      <!-- <button type="button" class="btn btn-danger" name="btn-remover"> - </button> -->
+                      </div>
                     </div>
 
                   </form>
@@ -150,11 +171,13 @@
                     </div>
                     <div class="form-group">
                       <p>Valores</p>
-                      <input class="form-control" type="text" name="valores" id="valores" placeholder="Valores da Empresa">
-                      <!-- <input class="form-control" type="text" name="valores[]" id="valores" placeholder="Valores da Empresa">
-                      <button type="button" class="btn btn-primary" name="adicionar">+</button> -->
+                      <!-- <input class="form-control" type="text" name="valores" id="valores" placeholder="Valores da Empresa"> -->
+                      <input class="form-control" type="text" name="valores[]" id="valores" placeholder="Valor - Detalhe">
+                      <div id="containerBotaoEdit">
+                      <button type="button" class="btn btn-primary" name="btn-adicionar-edit" id="btn-adicionar-edit"> + </button>
+                      <!-- <button type="button" class="btn btn-danger" name="btn-remover"> - </button> -->
+                      </div>
                     </div>
-                    <!-- https://www.youtube.com/watch?v=aWdRpLEqwkI -->
                   </form>
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                   <button onclick="edit_tabelaMissaoValores(id)" class="btn btn-primary" name="alterar">Salvar</button>
@@ -188,6 +211,7 @@
   <script src="view/vendor/bootstrapTable/bootstrap-table.min.js"></script>
   <!-- API Bootbox -->
   <script src="view/vendor/bootbox/bootbox.min.js"></script>
+
   <!--  -->
 
   <!-- scripts próprios -->
@@ -196,6 +220,27 @@
     $("#tabelaMissaoValor").bootstrapTable();
     //$("#tabelaMissaoValor").bootstrapTable("refresh", { url: "dados.json"  });
     $("#tabelaMissaoValor").bootstrapTable("refresh",{ url:'controller/controllerIndexReload.php' });
+    
+    var cont = 1;
+    //script botão adicionar valor modal add
+    $( "#btn-adicionar-add" ).click(function() {
+      cont++;
+      $( "#containerBotaoAdd" ).append( '<input class="form-control" type="text" name="valores[]" id="valores'+ cont +'" placeholder="Valor - Detalhe"><button type="button" class="btn btn-danger" name="btn-remover" id="btn-remover-add'+ cont +'"> - </button>' );
+    });
+
+    //script botão adicionar valor modal edit
+    $( "#btn-adicionar-edit" ).click(function() {
+      $( "#containerBotaoEdit" ).append( '<input class="form-control" type="text" name="valores[]" id="valores'+ cont +'" placeholder="Valor - Detalhe"><button type="button" class="btn btn-danger" name="btn-remover" id="btn-remover-edit'+ cont +'"> - </button>' );
+    });
+
+    //script botão remover valor modal add
+    
+    $( "form" ).on( "click", ".btn btn-danger", function() {
+      var button_id = $( this ).attr( "id" );
+      $( '#valores'+ button_id +'').remove();
+    });
+    //script botão remover valor modal edit
+
 
     // function functionAcao(campo, obj, indice)
     // {
