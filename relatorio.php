@@ -115,6 +115,8 @@
   <script>
     function geraRelatorio()
     {
+      // window.location.href
+      window.open("geraRelatorio.php");
       bootbox.alert("Programar chamada para gerar relatório")
       bootbox.alert($("#opcaoSWOT").val())
     }
