@@ -10,6 +10,10 @@
     color: var(--laranja) !important;
     transition: 600ms;
   }
+  ul
+  {
+    height: 100%;
+  }
 </style>
 <ul class="sidebar navbar-nav" style="border-top: solid 1px white">
   <li class="nav-item">

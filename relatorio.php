@@ -15,6 +15,17 @@
   <!-- API BootstrapTable -->
   <link href="view/vendor/bootstrapTable/bootstrap-table.min.css" rel="stylesheet">
 
+  <style>
+    #containerRelatorio
+    {
+      padding: 0;
+    }
+    .row
+    {
+      margin: 0;
+    }
+  </style>
+
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
@@ -55,7 +66,26 @@
     </div>
     <div class="row col-10" style="padding: 15px 5px">
       
-      Relatório
+      <div id="containerRelatorio" class="card col-12">
+        <div class="card-header bg-laranja">Relatório</div>
+        <div class="card-body">
+          <div class="form-group">
+            <form>
+              <p>Elemento SWOT</p>
+              <select id="opcaoSWOT" name="opcaoSWOT" type="text" class="form-control">
+                <option val="forca" class="form-item">Força</option>
+                <option val="fraqueza" class="form-item">Fraqueza</option>
+                <option val="oportunidade" class="form-item">Oportunidade</option>
+                <option val="ameacas" class="form-item">Ameaças</option>
+              </select>
+            </form>
+            <div style="margin-top: 10px">
+              <button class="btn btn-success" onclick="geraRelatorio()">Gerar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div id="piechart" style="width: 900px; height: 500px;"></div>
       <!-- <img src="view/imgs/logomarca.png" alt="" style="display: block;width: 350px; margin: 3.8vw auto; opacity: 1"> -->
     </div>
@@ -83,6 +113,11 @@
   
   <!-- scripts prorpios -->
   <script>
+    function geraRelatorio()
+    {
+      bootbox.alert("Programar chamada para gerar relatório")
+      bootbox.alert($("#opcaoSWOT").val())
+    }
   </script>
 
 </body>
