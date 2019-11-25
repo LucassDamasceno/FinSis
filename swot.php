@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- <link rel="icon" href="view/imgs/faviconLG.png" sizes="16x16" type="image/png" /> -->
+  <link rel="icon" href="view/imgs/faviconLG.png" sizes="16x16" type="image/png" />
   <title>Construtora Pandora</title>
   <!-- Fonts personalizadas para do template-->
   <link href="view/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -67,26 +67,55 @@
     </div>
   </div>
 
-  <!-- modla editar -->
+  <!-- modal editar -->
   <div id="modalEdit" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
-      <div class="modal-content">0
+      <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">ADICIONAR</h5>
+          <h5 class="modal-title">Editar</h5>
+          <span class="id-swot"  style="display: none;"></span>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <p>form aqui</p>
-        </div>
+        <p>Descrição</p>
+        <input type="text" class="form-control" id="div01" name="div01">
+        </div>  
+        
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary">Ok</button>
+          <button type="button" class="btn btn-primary" onclick="editar()">Ok</button>
         </div>
       </div>
     </div>
   </div>
+
+
+
+  <!-- Modal Delete -->
+<div class="modal" id="ModalDel" role="dialog">
+    <div class="modal-dialog" role="document"></div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title">Excluir</h5>
+             <span class="id-swot" style="display: none;"></span>
+                <button type="button" class="close" data-dissmiss="modal" aria-hidden="true">&times;</button>
+               
+            </div>
+            <div class="modal-body">
+                <p class="sucess-message">Tem certeza de que quer excluir o registro?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success delete-confirm" onclick="deletar()" type="button">Sim</button>
+                <button class="btn btn-default" type="button" data-dismiss="modal">Não</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- fim modal delete-->
+
 
   <!-- FIM DE MODAIS -->
 
@@ -102,8 +131,8 @@
           <div id="card-body-forca" class="card-body"></div>
           <div id="containerCRUD" class="footer">
             <button class="btn btn-md bg-laranja" onclick="modal_add('Força')"><i class="fa fa-plus"></i></button>
-            <button class="btn btn-md bg-laranja" onclick="modalEdit('Força')"><i class="fa fa-pen"></i></button>
-            <button class="btn btn-md bg-laranja" onclick="modalDel('Força')"><i class="fa fa-trash"></i></button>
+            <button class="btn btn-md bg-laranja" onclick="modalEdit()"><i class="fa fa-pen"></i></button>
+            <button class="btn btn-md bg-laranja" onclick="deletar('Força')"><i class="fa fa-trash"></i></button>
           </div>
         </div>
 
@@ -114,15 +143,15 @@
           <div id="card-body-fraqueza" class="card-body fraquezas">
             <div>
               <p>
-              <input type="checkbox" id="" name="">
-              isso aqui era pra ser a descriçao de um ponto de FRAQUEZAS da empresa
+              <input type="checkbox" id="id" name="chklista">
+              
               </p>
             </div>
           </div>
             <div id="containerCRUD" class="footer">
               <button class="btn btn-md bg-laranja" onclick="modal_add('Fraqueza')"><i class="fa fa-plus"></i></button>
-              <button class="btn btn-md bg-laranja" onclick="modalEdit('Fraqueza')"><i class="fa fa-pen"></i></button>
-              <button class="btn btn-md bg-laranja" onclick="modalDel('Fraqueza')"><i class="fa fa-trash"></i></button>
+              <button class="btn btn-md bg-laranja" onclick="modalEdit()"><i class="fa fa-pen"></i></button>
+              <button class="btn btn-md bg-laranja" onclick="deletar('Fraqueza')"><i class="fa fa-trash"></i></button>
             </div>          
         </div>
 
@@ -133,15 +162,15 @@
           <div id="card-body-oportunidade" class="card-body">
             <div>
               <p>
-              <input type="checkbox" id="" name="">
-              isso aqui era pra ser a descriçao de um ponto de OPORTUNIDADES da empresa
+              <input type="checkbox" id="" name="chklista">
+              
               </p>
             </div>
           </div>
           <div id="containerCRUD" class="footer">
             <button class="btn btn-md bg-laranja" onclick="modal_add('Oportunidade')"><i class="fa fa-plus"></i></button>
-            <button class="btn btn-md bg-laranja" onclick="modalEdit('Oportunidade')"><i class="fa fa-pen"></i></button>
-            <button class="btn btn-md bg-laranja" onclick="modalDel('Oportunidade')"><i class="fa fa-trash"></i></button>
+            <button class="btn btn-md bg-laranja" onclick="modalEdit()"><i class="fa fa-pen"></i></button>
+            <button class="btn btn-md bg-laranja" onclick="deletar('Oportunidade')"><i class="fa fa-trash"></i></button>
           </div>
         </div>
 
@@ -152,15 +181,15 @@
           <div id="card-body-ameaca" class="card-body">
             <div>
               <p>
-              <input type="checkbox" id="" name="">
-                isso aqui era pra ser a descriçao de um ponto de AMEAÇAS da empresa
+              <input type="checkbox" id="${swot.id}" name="chklista">
+                
               </p>
             </div>
           </div>
           <div id="containerCRUD" class="footer">
             <button class="btn btn-md bg-laranja" onclick="modal_add('Ameaça')"><i class="fa fa-plus"></i></button>
-            <button class="btn btn-md bg-laranja" onclick="modalEdit('Ameaça')"><i class="fa fa-pen"></i></button>
-            <button class="btn btn-md bg-laranja" onclick="modalDel('Ameaça')"><i class="fa fa-trash"></i></button>
+            <button class="btn btn-md bg-laranja" onclick="modalEdit()"><i class="fa fa-pen"></i></button>
+            <button class="btn btn-md bg-laranja" onclick="deletar()"><i class="fa fa-trash"></i></button>
           </div>
         </div>
 
@@ -172,6 +201,8 @@
       <!-- <img src="view/imgs/logomarca.png" alt="" style="display: block;width: 350px; margin: 3.8vw auto; opacity: 1"> -->
   </div>
 </div>
+
+
 
   <!--  -->
     <!-- Bootstrap core JavaScript-->
@@ -196,6 +227,7 @@
   <!-- scripts prorpios -->
   <script>
   // carregamento da tabela
+ 
 
     function functionAcao(campo, obj, indice)
     {
@@ -207,14 +239,17 @@
       // Forca
       $.get('http://localhost:3000/api/swots/nome/Força', function(retorno) {
         const swots = retorno.swots; //transformar em json o retorno
+        // console.log(swots);
         $('#card-body-forca').html('');
         swots.forEach(swot =>
         {
           $('#card-body-forca').append(`<div>
               <p>
-              <input type="checkbox" id="" name="">
+              <input type="checkbox" id="${swot.id}" name="chk" value=" ${swot.descricao}">
               ${swot.descricao}
+              
               </p>
+
             </div>`);
         });
     
@@ -228,8 +263,9 @@
           
           $('#card-body-fraqueza').append(`<div>
               <p>
-              <input type="checkbox" id="" name="">
+              <input type="checkbox" id="${swot.id}" name="chk" value=" ${swot.descricao}">
               ${swot.descricao}
+              
               </p>
             </div>`);
         });
@@ -244,8 +280,9 @@
           
           $('#card-body-oportunidade').append(`<div>
               <p>
-              <input type="checkbox" id="" name="">
+              <input type="checkbox" id="${swot.id}" name="chk" value=" ${swot.descricao}">
               ${swot.descricao}
+              
               </p>
             </div>`);
         });
@@ -260,12 +297,15 @@
           
           $('#card-body-ameaca').append(`<div>
               <p>
-              <input type="checkbox" id="" name="">
-              ${swot.descricao}
+              <input type="checkbox" id="${swot.id}" name="chk" value="${swot.descricao}">
+
+              ${swot.descricao},
+              
               </p>
             </div>`);
+            
         });
-    
+        
       });
 
     }
@@ -279,7 +319,7 @@
     {
       $("#titleElementoSwot").html(elementoSWOT)
       $.get('http://localhost:3000/api/swots/nome/'+elementoSWOT), (result) =>{
-      const swot = json.swots;
+     
       }
 
       $("#form_nome").val(elementoSWOT);
@@ -303,18 +343,92 @@
         {
           bootbox.alert("Erro na comunicação com o servidor.")
         }
-      })
+      });
     }
 
     function modalEdit(elementoSWOT){
+      $("#modalEdit").modal("show");
+      $('input[name="chk"]:checked').toArray().forEach(function(check) { 
+        const $check = $(check);
+        $('.id-swot').html($check.attr('id'));
+        $('#div01').val($check.val());
+        
+    }); 
+   
+  
+    }
+
+    function editar(){
+      let id = $('.id-swot').html();
+      let descricao = $("input[name=div01]").val()
+    $.ajax({
+    url: 'http://localhost:3000/api/swots/'+id,
+    type: 'PUT',
+    dataType: 'JSON',
+    contentType: 'application/json',
+    data: JSON.stringify({ 'descricao':'div01'}),
+    success: function(data, status, jqXHR){
+    },
+    error: function(jqXHR, status, errorThrown){
+    }
+      })
+ 
+     
+
+      // $.put('http://localhost:3000/api/swots/'+id,{
+      
+      //   'div01': descricao
+      // });
 
     }
-    function modalDel(elementoSWOT){
+
+    function modalDel(){
+      $("#ModalDel").modal("show");
+ 
+      $('input[name="chk"]:checked').toArray().forEach(function(check) { 
+        const $check = $(check);
+        $('.id-swot').html($check.attr('id'));
+        $('#div01').val($check.val());
+        
+    }); 
 
     }
-    
 
+    function deletar(){
+      let id = $('.id-swot').html();
+      $('input[name="chk"]:checked').toArray().forEach(function(check) { 
+        const $check = $(check);
+        $('.id-swot').html($check.attr('id'));
+        $('#div01').val($check.val());
+        
+    }); 
 
+      // $.delete('http://localhost:3000/api/swots/',+id+ {
+      //     'id': id
+      // }, function(r){
+      //     console.log(r);
+      // });
+      bootbox.confirm("Deseja mesmo apagar o registro dessa conta?", function(resposta){
+        
+                if(resposta == true)
+                {
+                 
+                    $.ajax({
+                      type: 'DELETE',
+                      data: id,
+                       url: 'http://localhost:3000/api/swots/'+id,
+                        success: function(ret){
+                            console.log(ret);
+                            
+                        },
+                        error: function(err){
+                            console.log(err);
+                            bootbox.alert("Erro na comunicação com o Banco de Dados. Contate os desenvolvedores.")
+                        }
+                    })
+                }
+            });  
+    }
 
   </script>
 
