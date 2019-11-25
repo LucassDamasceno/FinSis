@@ -67,15 +67,15 @@
     <div class="row col-10" style="padding: 15px 5px">
       
       <div id="containerRelatorio" class="card col-12">
-        <div class="card-header bg-laranja">Relatório</div>
+        <div class="card-header bg-laranja">RELATÓRIO</div>
         <div class="card-body">
           <div class="form-group">
             <form>
               <p>Elemento SWOT</p>
               <select id="opcaoSWOT" name="opcaoSWOT" type="text" class="form-control">
-                <option val="forca" class="form-item">Força</option>
-                <option val="fraqueza" class="form-item">Fraqueza</option>
-                <option val="oportunidade" class="form-item">Oportunidade</option>
+                <option val="forcas" class="form-item">Forças</option>
+                <option val="fraquezas" class="form-item">Fraquezas</option>
+                <option val="oportunidades" class="form-item">Oportunidades</option>
                 <option val="ameacas" class="form-item">Ameaças</option>
               </select>
             </form>
