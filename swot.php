@@ -101,21 +101,21 @@
             <div class="modal-header">
             <h5 class="modal-title">Excluir</h5>
              <span class="id-swot" style="display: none;"></span>
-                <button type="button" class="close" data-dissmiss="modal" aria-hidden="true">&times;</button>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
                
             </div>
             <div class="modal-body">
                 <p class="sucess-message">Tem certeza de que quer excluir o registro?</p>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-success delete-confirm" onclick="deletar()" type="button">Sim</button>
-                <button class="btn btn-default" type="button" data-dismiss="modal">Não</button>
-            </div>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" onclick="deletar()">Ok</button>
+        </div>
         </div>
     </div>
 </div>
-<!-- fim modal delete-->
-
 
   <!-- FIM DE MODAIS -->
 
@@ -129,10 +129,11 @@
             FORÇAS
           </div>
           <div id="card-body-forca" class="card-body"></div>
+          
           <div id="containerCRUD" class="footer">
             <button class="btn btn-md bg-laranja" onclick="modal_add('Força')"><i class="fa fa-plus"></i></button>
             <button class="btn btn-md bg-laranja" onclick="modalEdit()"><i class="fa fa-pen"></i></button>
-            <button class="btn btn-md bg-laranja" onclick="deletar('Força')"><i class="fa fa-trash"></i></button>
+            <button class="btn btn-md bg-laranja" onclick="modalDel('Força')"><i class="fa fa-trash"></i></button>
           </div>
         </div>
 
@@ -141,17 +142,12 @@
               FRAQUEZAS
           </div>
           <div id="card-body-fraqueza" class="card-body fraquezas">
-            <div>
-              <p>
-              <input type="checkbox" id="id" name="chklista">
-              
-              </p>
-            </div>
+            
           </div>
             <div id="containerCRUD" class="footer">
               <button class="btn btn-md bg-laranja" onclick="modal_add('Fraqueza')"><i class="fa fa-plus"></i></button>
               <button class="btn btn-md bg-laranja" onclick="modalEdit()"><i class="fa fa-pen"></i></button>
-              <button class="btn btn-md bg-laranja" onclick="deletar('Fraqueza')"><i class="fa fa-trash"></i></button>
+              <button class="btn btn-md bg-laranja" onclick="modalDel('Fraqueza')"><i class="fa fa-trash"></i></button>
             </div>          
         </div>
 
@@ -160,17 +156,12 @@
               OPORTUNIDADES
           </div>
           <div id="card-body-oportunidade" class="card-body">
-            <div>
-              <p>
-              <input type="checkbox" id="" name="chklista">
-              
-              </p>
-            </div>
+            
           </div>
           <div id="containerCRUD" class="footer">
             <button class="btn btn-md bg-laranja" onclick="modal_add('Oportunidade')"><i class="fa fa-plus"></i></button>
             <button class="btn btn-md bg-laranja" onclick="modalEdit()"><i class="fa fa-pen"></i></button>
-            <button class="btn btn-md bg-laranja" onclick="deletar('Oportunidade')"><i class="fa fa-trash"></i></button>
+            <button class="btn btn-md bg-laranja" onclick="modalDel('Oportunidade')"><i class="fa fa-trash"></i></button>
           </div>
         </div>
 
@@ -179,17 +170,12 @@
               AMEAÇAS
           </div>
           <div id="card-body-ameaca" class="card-body">
-            <div>
-              <p>
-              <input type="checkbox" id="${swot.id}" name="chklista">
-                
-              </p>
-            </div>
+            
           </div>
           <div id="containerCRUD" class="footer">
             <button class="btn btn-md bg-laranja" onclick="modal_add('Ameaça')"><i class="fa fa-plus"></i></button>
             <button class="btn btn-md bg-laranja" onclick="modalEdit()"><i class="fa fa-pen"></i></button>
-            <button class="btn btn-md bg-laranja" onclick="deletar()"><i class="fa fa-trash"></i></button>
+            <button class="btn btn-md bg-laranja" onclick="modalDel()"><i class="fa fa-trash"></i></button>
           </div>
         </div>
 
@@ -354,31 +340,24 @@
         $('#div01').val($check.val());
         
     }); 
-   
   
     }
 
     function editar(){
+      debugger;
       let id = $('.id-swot').html();
-      let descricao = $("input[name=div01]").val()
+      let descricao = $("input[name=div01]").val();
     $.ajax({
     url: 'http://localhost:3000/api/swots/'+id,
     type: 'PUT',
     dataType: 'JSON',
     contentType: 'application/json',
-    data: JSON.stringify({ 'descricao':'div01'}),
+    data: JSON.stringify({ 'descricao': descricao}),
     success: function(data, status, jqXHR){
     },
     error: function(jqXHR, status, errorThrown){
     }
       })
- 
-     
-
-      // $.put('http://localhost:3000/api/swots/'+id,{
-      
-      //   'div01': descricao
-      // });
 
     }
 
@@ -402,36 +381,21 @@
         $('#div01').val($check.val());
         
     }); 
-
-      // $.delete('http://localhost:3000/api/swots/',+id+ {
-      //     'id': id
-      // }, function(r){
-      //     console.log(r);
-      // });
-      bootbox.confirm("Deseja mesmo apagar o registro dessa conta?", function(resposta){
-        
-                if(resposta == true)
-                {
-                 
-                    $.ajax({
-                      type: 'DELETE',
-                      data: id,
-                       url: 'http://localhost:3000/api/swots/'+id,
-                        success: function(ret){
-                            console.log(ret);
-                            
-                        },
-                        error: function(err){
-                            console.log(err);
-                            bootbox.alert("Erro na comunicação com o Banco de Dados. Contate os desenvolvedores.")
-                        }
-                    })
-                }
-            });  
-    }
-
+      $.ajax({
+        type: 'DELETE',
+        data: id,
+          url: 'http://localhost:3000/api/swots/'+id,
+          success: function(ret){
+              reload()
+              $("#modalDel").modal("hide");
+          },
+          error: function(err){
+              console.log(err);
+              bootbox.alert("Erro na comunicação com o Banco de Dados. Contate os desenvolvedores.")
+          }
+      });
+    }  
+    
   </script>
-
 </body>
-
 </html>
