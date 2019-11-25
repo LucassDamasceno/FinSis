@@ -102,20 +102,20 @@
                   <form id="formMissaoValores">
                     <div class="form-group">
                       <p>Razão Social</p>
-                      <input class="form-control" type="text" name="razao" placeholder="Razão Social">
+                      <input class="form-control" type="text" name="razao" id="razao"placeholder="Razão Social">
                     </div>
                     <div class="form-group">
                       <p>CNPJ</p>
-                      <input class="form-control" type="text" name="cnpj" placeholder="99.999.999/9999-99">
+                      <input class="form-control" type="text" name="cnpj" id="cnpj" placeholder="99.999.999/9999-99">
                     </div>
                     <div class="form-group">
                       <p>Missão</p>
-                      <textarea class="form-control" name="missao" placeholder="Missão" rows="2" ></textarea>
+                      <textarea class="form-control" name="missao" id="missao" placeholder="Missão" rows="2" ></textarea>
                       <!-- <input class="form-control" type="text" name="missao" placeholder="Missão"> -->
                     </div>
                     <div class="form-group">
                       <p>Visão</p>
-                      <textarea class="form-control" name="visao" placeholder="Visão" rows="2"></textarea>
+                      <textarea class="form-control" name="visao"  id="visao" placeholder="Visão" rows="2"></textarea>
                       <!-- <input class="form-control" type="text" name="visao" placeholder="Visão"> -->
                     </div>
                     <div class="form-group">
