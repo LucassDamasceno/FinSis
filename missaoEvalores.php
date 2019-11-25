@@ -64,7 +64,7 @@
 
       <div id="containerCRUD" class="col-12 top">
         <button class="btn btn-md bg-laranja" onclick="addEmpresa()"><i class="fa fa-plus"></i></button>
-        <button class="btn btn-md bg-laranja" onclick="edit_tabelaMissaoValores(id)"><i class="fa fa-pen"></i></button>
+        <button class="btn btn-md bg-laranja" onclick="editEmpresa(id)"><i class="fa fa-pen"></i></button>
         <button class="btn btn-md bg-laranja" onclick="del_tabelaMissaoValores()"><i class="fa fa-trash"></i></button>
       </div>
 
@@ -249,13 +249,23 @@
     // }
 
 
-    // CHAMAR FORM MISSAO&VALORES
+    // CHAMAR FORM ADD MISSAO&VALORES
     function addEmpresa() {
       let elementoLista = $("#".elementoMissao);
       $("#modalAdd").modal("show");
       let formulario = $("#formMissaoValores")[0];
       let formData = new FormData(formulario);
     }
+
+    // CHAMAR FORM EDIT MISSAO&VALORES
+    function editEmpresa(id) {
+      let elementoLista = $("#".elementoMissaoEdit);
+      $("#modalEdit").modal("show");
+      let formulario = $("#formMissaoValores")[0];
+      let formData = new FormData(formulario);
+      //alert(id);
+    }
+
 
     // ADD 
     function btn_addMissaoValores() {
@@ -293,13 +303,10 @@
         })
       }
     }
-
+   
     //edit
     function edit_tabelaMissaoValores(id) {
-      let elementoLista = $("#".elementoMissaoEdit);
-      $("#modalEdit").modal("show");
-      let formulario = $("#formMissaoValores")[0];
-      let formData = new FormData(formulario);
+      
       //alert(id);
     }
   </script>
