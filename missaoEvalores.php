@@ -38,7 +38,7 @@
     {
       margin-top: 10px;
     }
-    #valores 
+    #valoresAdd, #valoresEdit 
     {
       margin-top: 10px;
     }
@@ -221,25 +221,26 @@
     //$("#tabelaMissaoValor").bootstrapTable("refresh", { url: "dados.json"  });
     $("#tabelaMissaoValor").bootstrapTable("refresh",{ url:'controller/controllerIndexReload.php' });
     
-    var cont = 1;
-    //script botão adicionar valor modal add
-    $( "#btn-adicionar-add" ).click(function() {
-      cont++;
-      $( "#containerBotaoAdd" ).append( '<input class="form-control" type="text" name="valores[]" id="valores'+ cont +'" placeholder="Valor - Detalhe"><button type="button" class="btn btn-danger" name="btn-remover" id="btn-remover-add'+ cont +'"> - </button>' );
+    
+     //script botão adicionar valor modal add
+     $( "#btn-adicionar-add" ).click(function() {
+      $( "#containerBotaoAdd" ).append( '<input class="form-control" type="text" name="valores[]" id="valoresAdd" placeholder="Valor - Detalhe"><button onclick="removerValorAdd()" class="btn btn-danger" name="btn-remover" id="btn-remover"> - </button>' );
     });
 
     //script botão adicionar valor modal edit
     $( "#btn-adicionar-edit" ).click(function() {
-      $( "#containerBotaoEdit" ).append( '<input class="form-control" type="text" name="valores[]" id="valores'+ cont +'" placeholder="Valor - Detalhe"><button type="button" class="btn btn-danger" name="btn-remover" id="btn-remover-edit'+ cont +'"> - </button>' );
+      $( "#containerBotaoEdit" ).append( '<input class="form-control" type="text" name="valores[]" id="valoresEdit" placeholder="Valor - Detalhe"><button onclick="removerValorEdit()" class="btn btn-danger" name="btn-remover" id="btn-remover"> - </button>' );
     });
 
     //script botão remover valor modal add
-    
-    $( "form" ).on( "click", ".btn btn-danger", function() {
-      var button_id = $( this ).attr( "id" );
-      $( '#valores'+ button_id +'').remove();
-    });
+    function removerValorAdd() {
+      $( "#valoresAdd" ).remove();
+    };
+
     //script botão remover valor modal edit
+    function removerValorEdit() {
+      $( "#valoresEdit" ).remove();
+    };
 
 
     // function functionAcao(campo, obj, indice)
