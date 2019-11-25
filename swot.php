@@ -107,11 +107,11 @@
                
             </div>
             <div class="modal-body">
-                <p class="sucess-message">Tem certeza de que quer excluir o registro?</p>
+                <p class="sucess-message">Tem certeza que deseja excluir o registro?</p>
             </div>
             <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary" onclick="deletar()">Ok</button>
+          <button type="button" class="btn btn-primary" onclick="deletar()">Sim</button>
         </div>
         </div>
     </div>
