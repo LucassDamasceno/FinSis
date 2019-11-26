@@ -269,26 +269,26 @@
 
     // ADD 
     function btn_addMissaoValores() {
-      let formData = new FormData($("#formMissaoValores")[0]);
-      $.ajax({
-        url: 'http://localhost:3000/api/empresas',
-        data: { razao: $('#razao').val(), cnpj: $('#cnpj').val() }, missao: $('#missao').val() },
-        visao: $('#visao').val() }, valores: $('#valores').val() },
-        cache: false,
-        contentType: false,
-        processData: false,
-        type: 'POST',
-        dataType: 'JSON',
-        success: function(ret) {
-          console.log(ret);
-          console.log("sucesso");
-        },
-        error: function(xhr, desc, err) {
-          console.log(xhr)
-          console.log("tem alguma coisa errada " + desc + "nErro:" + err);
+      // let formData = new FormData($("#formMissaoValores")[0]);
+      // $.ajax({
+      //   url: 'http://localhost:3000/api/empresas',
+      //   data: { razao: $('#razao').val(), cnpj: $('#cnpj').val() , missao: $('#missao').val(),
+      //   visao: $('#visao').val() , valores: $('#valores').val() },
+      //   cache: false,
+      //   contentType: false,
+      //   processData: false,
+      //   type: 'POST',
+      //   dataType: 'JSON',
+      //   success: function(ret) {
+      //     console.log(ret);
+      //     console.log("sucesso");
+      //   },
+      //   error: function(xhr, desc, err) {
+      //     console.log(xhr)
+      //     console.log("tem alguma coisa errada " + desc + "nErro:" + err);
 
-        }
-      })
+      //   }
+      // })
     }
 
     // delete
@@ -303,41 +303,38 @@
           }
         })
       }
-      $.ajax({
-        type: 'DELETE',
-        data: id,
-          url: 'http://localhost:3000/api/empresas/'+id,
-          success: function(ret){
-              reload()
-              $("#tabelaMissaoValor").modal("hide");
-          },
-          error: function(err){
-              console.log(err);
-              bootbox.alert("Erro na comunicação com o Banco de Dados. Contate os desenvolvedores.")
-          }
-      });
+      // $.ajax({
+      //   type: 'DELETE',
+      //   data: id,
+      //     url: 'http://localhost:3000/api/empresas/'+id,
+      //     success: function(ret){
+      //         reload()
+      //         $("#tabelaMissaoValor").modal("hide");
+      //     },
+      //     error: function(err){
+      //         console.log(err);
+      //         bootbox.alert("Erro na comunicação com o Banco de Dados. Contate os desenvolvedores.")
+      //     }
+      // });
     }
    
     //edit
     function edit_tabelaMissaoValores(id) {
-      debugger;
-      let id = $('.id').html();
-      let descricao = $("input[name=div01]").val();
-    $.ajax({
-    url: 'http://localhost:3000/api/empresas/'+id,
-    type: 'PUT',
-    dataType: 'JSON',
-    contentType: 'application/json',
-    data: JSON.stringify({ 'razao': razao}, 'cnpj': cnpj, 'missao': missao, 'visao': visao, 'valores': valores),
-    success: function(data, status, jqXHR){
-      },
-    error: function(jqXHR, status, errorThrown){
-    }
-  })
-
+  //     debugger;
+  //     let id = $('.id').html();
+  //     let descricao = $("input[name=div01]").val();
+  //   $.ajax({
+  //   url: 'http://localhost:3000/api/empresas/'+id,
+  //   type: 'PUT',
+  //   dataType: 'JSON',
+  //   contentType: 'application/json',
+  //   data: JSON.stringify({ 'razao': razao}, 'cnpj': cnpj, 'missao': missao, 'visao': visao, 'valores': valores),
+  //   success: function(data, status, jqXHR){
+  //     },
+  //   error: function(jqXHR, status, errorThrown){
+  //   }
+  // })
 }
-      //alert(id);
-    }
   </script>
 
 </body>
